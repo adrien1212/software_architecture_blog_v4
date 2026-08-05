@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
 import { componentRegistry } from "./quartz/components/registry"
+import SectionExplorers from "./quartz/components/SectionExplorers"
 import { slugifyFilePath } from "./quartz/util/path"
 import type { FilePath } from "./quartz/util/path"
 
@@ -60,14 +61,65 @@ return a.displayName.localeCompare(b.displayName, undefined, {
 })`,
 ) as (a: unknown, b: unknown) => number
 
-// Equivalent of `ExternalPlugin.Explorer({ sortFn })`, but keyed directly so it
-// works whether the explorer is configured as "@quartz-community/explorer" or
-// as "github:quartz-community/explorer" (the loader looks up overrides under
-// the name it derives from the `source` field).
-for (const key of ["explorer", "@quartz-community/explorer", "Explorer"]) {
-  componentRegistry.setOptionOverrides(key, { sortFn: sortByWeight })
+// Three section explorers replace the single explorer plugin. A yaml plugin
+// entry can only be declared once and cannot carry functions, so the component
+// is built here and registered under the "explorer" key — the layout builder
+// resolves the explorer entry in quartz.config.yaml to whatever is registered
+// under that name, and the plugin loader will not overwrite an existing entry.
+const sectionExplorers = SectionExplorers({
+  sections: [
+    {
+      id: "architecture",
+      title: "Architecture",
+      folders: [
+        "software_architecture",
+        "fundamental_principles",
+        "software_characteristics",
+        "architecture_style",
+        "architecture_style_monolithic",
+        "architecture_style_distribued",
+        "layered_architecture",
+        "modular_monolithic",
+        "architecture_pattern",
+        "architecture_measure",
+        "architecture_antipattern",
+        "commun_antipattern",
+        "resources",
+      ],
+    },
+    {
+      id: "ddd",
+      title: "DDD",
+      folders: ["domain_driven_design", "domain_driven_design_example"],
+    },
+  ],
+  folderClickBehavior: "link",
+  folderDefaultState: "open",
+  useSavedState: true,
+  sortFn: sortByWeight,
+})
+
+// keyed under every name the layout builder may derive from the `source` field,
+// so it works whether the explorer is configured as "@quartz-community/explorer"
+// or as "github:quartz-community/explorer"
+for (const key of ["@quartz-community/explorer", "explorer", "Explorer"]) {
+  componentRegistry.register(key, sectionExplorers, "quartz.ts")
 }
 
 const config = await loadQuartzConfig()
+
+// The plugin loader also registers the raw explorer under a fully-qualified key
+// ("<plugin>/Explorer"), which it does unconditionally. That entry is picked up
+// when component css/scripts are collected, so it would ship a second copy of
+// the explorer script and double up its click handlers. Point it at the section
+// explorers too. Re-using the existing source keeps the registry from warning
+// about an overwrite.
+for (const [key, entry] of componentRegistry.getAll()) {
+  if (entry.component === sectionExplorers) continue
+  if (/(^|\/)explorer$/i.test(key)) {
+    componentRegistry.register(key, sectionExplorers, entry.source)
+  }
+}
+
 export default config
 export const layout = await loadQuartzLayout()

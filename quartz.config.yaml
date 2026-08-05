@@ -155,6 +155,9 @@ plugins:
       showSubfolders: false
   - source: "@quartz-community/tag-page"
     enabled: true
+  # The component behind this entry is replaced in quartz.ts by the three
+  # section explorers (Architecture / Design patterns / DDD); the options below
+  # are set there too.
   - source: "@quartz-community/explorer"
     enabled: true
     options:
