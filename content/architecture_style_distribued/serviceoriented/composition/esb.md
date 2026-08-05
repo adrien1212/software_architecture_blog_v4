@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Enterprise Service Bus"
 weight = 20
 +++

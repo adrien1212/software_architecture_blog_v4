@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Chorégraphie/Orchestration"
 weight = 20
 +++

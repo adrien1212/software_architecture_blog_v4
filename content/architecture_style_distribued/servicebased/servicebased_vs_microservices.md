@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Service-Based vs Microservices"
 linkTitle = "Service-B vs Microservices"
 weight = 40 

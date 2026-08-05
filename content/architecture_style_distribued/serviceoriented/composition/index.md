@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Composition"
 weight = 40
 +++

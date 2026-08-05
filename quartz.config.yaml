@@ -12,6 +12,11 @@ configuration:
     - private
     - templates
     - .obsidian
+    - architecture_pattern
+    - architecture_measure
+    - architecture_antipattern
+    - architecture_style_monolithic
+    - design_patterns
   theme:
     fontOrigin: googleFonts
     cdnCaching: true
@@ -260,6 +265,10 @@ plugins:
       position: beforeBody
       priority: 15
       display: all
+  - source: github:quartz-community/remove-draft
+    enabled: true
+    options: {}
+    order: 50
 layout:
   groups:
     toolbar:

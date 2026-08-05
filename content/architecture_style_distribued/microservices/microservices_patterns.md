@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Microservice Patterns"
 weight = 70
 +++

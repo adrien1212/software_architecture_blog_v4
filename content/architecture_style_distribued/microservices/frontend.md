@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Front End"
 weight = 25
 +++

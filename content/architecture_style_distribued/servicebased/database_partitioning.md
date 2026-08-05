@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Database Partitioning"
 weight = 30
 +++

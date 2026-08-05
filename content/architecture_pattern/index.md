@@ -5,6 +5,7 @@ title = "Patrons Architecturaux"
 weight = 70
 addBrBefore = true
 isBoldTitle = true
+draft = "true"
 +++
 
 > [!ressource] Ressources

@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Relation avec :"
 weight = 40
 +++

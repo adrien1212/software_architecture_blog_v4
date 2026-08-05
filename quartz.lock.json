@@ -6,6 +6,12 @@
       "resolved": "https://github.com/quartz-community/explorer.git",
       "commit": "06ea3d8e206f0edaab08556191adc75b2403e832",
       "installedAt": "2026-07-25T09:47:39.584Z"
+    },
+    "remove-draft": {
+      "source": "github:quartz-community/remove-draft",
+      "resolved": "https://github.com/quartz-community/remove-draft.git",
+      "commit": "254b2d2465caba9356d196b07560ed2fec92f374",
+      "installedAt": "2026-08-05T19:20:15.217Z"
     }
   }
 }

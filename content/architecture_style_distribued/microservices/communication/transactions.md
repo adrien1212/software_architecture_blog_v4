@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Transactions"
 weight = 10
 +++

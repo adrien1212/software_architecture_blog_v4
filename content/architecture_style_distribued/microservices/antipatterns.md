@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Antipatterns et Pitfall"
 weight = 15
 +++

@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Quelle taille ?"
 weight = 15
 +++

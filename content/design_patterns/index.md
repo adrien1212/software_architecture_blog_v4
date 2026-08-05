@@ -5,6 +5,7 @@ title = "Design Patterns"
 weight = 80
 addBrBefore = true
 isBoldTitle = true
+draft = true
 +++
 
 > [!ressource] Ressource

@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Service Mesh"
 weight = 40
 +++

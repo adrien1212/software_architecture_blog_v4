@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Définition"
 weight = 20
 +++

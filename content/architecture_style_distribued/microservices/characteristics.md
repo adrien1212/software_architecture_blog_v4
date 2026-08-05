@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Caractéristiques"
 weight = 15
 +++

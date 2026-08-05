@@ -1,5 +1,5 @@
 +++
-draft = "true"
+
 title = "Communication"
 weight = 30
 +++
