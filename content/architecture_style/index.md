@@ -6,13 +6,18 @@ weight = 50
 > [!ressource] Ressources
 > - [https://betterprogramming.pub/trade-offs-on-monolithic-vs-distributed-architectures-7a04f86d47ad](https://betterprogramming.pub/trade-offs-on-monolithic-vs-distributed-architectures-7a04f86d47ad)
 > - [https://guidanceshare.com/wiki/Application_Architecture_Guide](https://guidanceshare.com/wiki/Application_Architecture_Guide)
+> - [https://metapatterns.io/](https://metapatterns.io/)
 
 > Nous définissons un style d'architecture comme la structure globale de l'interface utilisateur et le backend (e.g. layered architecture avec déploiement monolithique) et la manière dont le code interagit avec la base de données.
 
 L'objectif de l'architecte débutant est de comprendre les différents styles et les compromis qu'ils impliquent.
 
+
 ## Classification
 
+L'image ci-dessous [https://metapatterns.io/introduction/system-topologies/](https://metapatterns.io/introduction/system-topologies/) présente les différents styles architecturaux
+
+![map](architecture_style/images/map.png)
 
 Les styles d'architecture peuvent être classés en deux types principaux : _monolithique_ (le code entier forme une seule unité de déploiement) et _distribué_ (plusieurs unités de déploiement connectées par des protocoles d'accès à distance).
 

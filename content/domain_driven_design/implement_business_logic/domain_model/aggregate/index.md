@@ -3,7 +3,8 @@ title = "Aggregate"
 weight = 20
 +++
 
-> [!ressource]
+
+> [!ressource] Ressources
 > - [How to design the aggregate boundaries?](https://softwareengineering.stackexchange.com/questions/361089/how-to-design-the-aggregate-boundaries)
 > - [https://martinfowler.com/bliki/DDD_Aggregate.html](https://martinfowler.com/bliki/DDD_Aggregate.html)
 
@@ -13,7 +14,7 @@ weight = 20
 > L’agrégat constitue une frontière de cohérence transactionnelle et a pour rôle principal de garantir les invariants métier qui s’appliquent à l’ensemble des objets qu’il contient.
 > Au sein de cet ensemble, une entité particulière est désignée comme racine d’agrégat (Aggregate Root). Cette racine est le seul point d’accès externe permettant de modifier l’état de l’agrégat. Ainsi, toutes les opérations susceptibles d’affecter les objets internes doivent obligatoirement passer par cette racine, ce qui permet d’assurer le respect des règles métier.
 
-![alt text](agregate_illustration.png)
+![alt text](images/agregate_illustration.png)
 
 ## Exemple d'agrégat
 Un exemple classique d’agrégat est celui d’une Commande (Order) et de ses Lignes de commande (OrderLine).
@@ -73,14 +74,14 @@ public class Order {
 
 ### Favoriser des relations unidirectionnelles
 
-![bidirectionnal](bidirectionnal.png)
+![bidirectionnal](images/bidirectionnal.png)
 
 Est-il vraiment nécessaire de charger tous les produits d'un fournisseur alors que l'on souhaite simplement modifier ses coordonnées ? Est-ce grave si un produit ne dispose pas d'une liste navigable de fournisseurs ? Comme
 vous pouvez le constater, une relation bidirectionnelle Fournisseur ajoute une complexité technique et obscurcit les concepts métier : on ne sait pas qui est le propriétaire (*owner*) de la relation.
 
 Pour simplifier la relation, on peut la rendre unidirectionnelle 
 
-![alt text](unidirectionelle.png)
+![alt text](images/unidirectionelle.png)
 
 
 ### Référencer un autre Agrégat par son Id
@@ -95,7 +96,7 @@ class Order {
 }
 ```
 
-![alt text](reference_by_id.png)
+![alt text](images/reference_by_id.png)
 
 En effet, ce code pourrait être lent car un graphe d'objets volumineux (le client et toutes ses commandes existantes) doit être chargé pour le cas d'utilisation de base consistant à passer une commande. Ces problèmes surviennent parce que la relation est modélisée comme une référence d'objet, ce qui nécessite que tous les objets du graphe d'objets soient chargés collectivement depuis la persistance.
 
@@ -104,7 +105,7 @@ cas d'utilisation métier.
 
 Une autre méthode pour implémenter les associations consiste à stocker l'ID de l'objet et via le *Repository* au sein de l'application service pour récupérer les objets de domaine requis pour un cas d'utilisation
 
-![alt text](reference_by_id2.png)
+![alt text](images/reference_by_id2.png)
 
 ```java
 class Order {
