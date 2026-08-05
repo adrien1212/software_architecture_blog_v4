@@ -1,13 +1,13 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Agile
+  pageTitle: Architecture Logicielle
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
   analytics:
     provider: plausible
   locale: fr-FR
-  baseUrl: etreagile.fr
+  baseUrl: softwarearchitecture.fr
   ignorePatterns:
     - private
     - templates
