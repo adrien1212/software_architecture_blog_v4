@@ -13,6 +13,9 @@ Un agrégat garantit ses invariants à l'intérieur d'une transaction. Cette gar
 
 ## Le problème de la lecture périmée
 
+> [!ressource] Ressource
+> - Le commentaire de Michaël Azerhad dans https://lnkd.in/p/eiMzhnyd reprend le même type d'exemple
+
 Soit la règle : *un employé ne peut pas dépasser 40 heures par semaine*. L'employé en a déjà déclaré 35.
 
 | Temps | Transaction A | Transaction B |
